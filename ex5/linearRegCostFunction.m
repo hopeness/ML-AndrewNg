@@ -22,7 +22,11 @@ grad = zeros(size(theta));
 
 
 
-
+diff = X*theta - y;
+theta1 = [0 ; theta(2:end, :)];
+p = lambda*(theta1'*theta1);
+J = (diff'*diff)/(2*m) + p/(2*m);
+grad = (X'*diff+lambda*theta1)/m;
 
 
 
